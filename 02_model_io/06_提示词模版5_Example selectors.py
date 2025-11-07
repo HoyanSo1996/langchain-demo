@@ -5,6 +5,8 @@
 import os
 
 import dotenv
+# from langchain_community.vectorstores import FAISS
+from langchain_community.vectorstores import Chroma
 from langchain_core.example_selectors import SemanticSimilarityExampleSelector
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 
