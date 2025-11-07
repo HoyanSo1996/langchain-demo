@@ -40,4 +40,5 @@ docs = [
 ]
 
 # 执行摘要
-chain.invoke({"docs": docs})
+res = chain.invoke({"docs": docs})
+print(res)
