@@ -22,7 +22,8 @@ search = TavilySearch(max_results=2)
 
 # 2.初始化 LLM
 llm = ChatOpenAI(
-    model="gpt-4",
+    # model="gpt-4",  # 太贵了
+    model="gpt-4o-mini",
     temperature=0
 )
 
