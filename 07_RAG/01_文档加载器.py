@@ -2,8 +2,10 @@
 # @Author  : Kenny So
 # @Date    : 2025/11/10 19:38
 # @Version : 1.0
-from langchain_community.document_loaders import TextLoader, PyPDFLoader, CSVLoader, JSONLoader, UnstructuredHTMLLoader, \
-    UnstructuredMarkdownLoader, DirectoryLoader, PythonLoader
+from pprint import pprint
+
+from langchain_community.document_loaders import TextLoader, PyPDFLoader, CSVLoader, JSONLoader, PythonLoader, \
+    UnstructuredHTMLLoader, UnstructuredMarkdownLoader, DirectoryLoader
 
 '''
 一、加载 txt 文件
@@ -29,7 +31,7 @@ pdf_loader = PyPDFLoader(file_path="asset/02-阿里巴巴Java开发手册.pdf")
 # pdf_loader = PyPDFLoader(file_path="https://arxiv.org/pdf/2302.03803")
 
 # 2. 加载, 返回List列表(Document对象)
-pdf_docs = pdf_loader.load()
+# pdf_docs = pdf_loader.load()
 # pdf_docs = pdf_loader.load_and_split()  # 另一种加载方式, 底层默认使用了递归字符文本切分器
 
 # 3. 打印
@@ -47,7 +49,7 @@ pdf_docs = pdf_loader.load()
 excel_loader = CSVLoader(file_path="asset/03-load.csv", encoding="gbk")
 
 # 2. 加载, 返回List列表(Document对象)
-excel_docs = excel_loader.load()
+# excel_docs = excel_loader.load()
 
 # 3. 打印
 # print(excel_docs)
@@ -81,7 +83,7 @@ json_loader3 = JSONLoader(
 )
 
 # 2. 加载
-json_docs = json_loader3.load()
+# json_docs = json_loader3.load()
 
 # 3. 打印
 # print(json_docs)
@@ -104,12 +106,12 @@ html_loader = UnstructuredHTMLLoader(
 )
 
 # 2. 加载
-html_docs = html_loader.load()
+# html_docs = html_loader.load()
 
 # 3. 打印
-print(html_docs)
-for doc in html_docs:
-    print(doc.page_content)
+# print(html_docs)
+# for doc in html_docs:
+#     print(doc.page_content)
 
 
 ##########################################################################
@@ -129,7 +131,8 @@ md_docs = md_loader.load()
 # 3. 打印 for doc in docs:
 # print(md_docs)
 # for doc in md_docs:
-#     print(doc.page_content)
+#     # print(doc.page_content)
+#     pprint(doc.page_content)
 
 
 ##########################################################################
@@ -146,9 +149,9 @@ directory_loader = DirectoryLoader(
 )
 
 # 2. 加载
-directory_docs = md_loader.load()
+directory_docs = directory_loader.load()
 
 # 3. 打印
-print(md_docs)
+print(directory_docs)
 for doc in directory_docs:
     print(doc.page_content)
