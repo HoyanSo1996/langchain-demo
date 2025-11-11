@@ -32,13 +32,13 @@ with open("asset/09-ai1.txt", encoding="utf-8") as f:
 text_splitter = SemanticChunker(
     embeddings=embed_model,
     breakpoint_threshold_type="percentile",  # 断点阈值类型：字面值["百分位数", "标准差", "四分位距", "梯度"] 选其一
-    breakpoint_threshold_amount=50.0  # 断点阈值数量 (极低阈值 → 高分割敏感度)
+    breakpoint_threshold_amount=10.0  # 断点阈值数量 (极低阈值 → 高分割敏感度)
 )
 
 # 3.切分文档
 docs = text_splitter.create_documents(texts=[state_of_the_union])
 
 # 4. 打印
-print(len(docs))
+print(docs)
 for doc in docs:
-    print(f"🔍 文档 {doc}:")
+    print(f"🔍 文档 {doc.page_content}:")
